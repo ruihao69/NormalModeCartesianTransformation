@@ -1,0 +1,3 @@
+# cmake folder here is not what this package is about
+# it's just a cmake findPackage config file to find FFTW
+cmake linguist-vendored 
