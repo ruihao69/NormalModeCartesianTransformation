@@ -31,6 +31,12 @@ target_link_libraries(NormalModeCartesianTransformation PRIVATE FFTW::Double)
 add_executable(test_benchmark test_benchmark.cpp)
 target_link_libraries(test_benchmark PRIVATE NormalModeCartesianTransformation)
 
+add_executable(test_consistency test_consistency.cpp)
+target_link_libraries(test_consistency PRIVATE NormalModeCartesianTransformation)
+
+add_executable(test test.cpp)
+target_link_libraries(test PRIVATE NormalModeCartesianTransformation)
+
 # add_executable(test_explicit test_explicit.cpp)
 # target_link_libraries(test_explicit PRIVATE NormalModeCartesianTransformation)
 

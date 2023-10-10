@@ -61,7 +61,7 @@ void FFTTransformation::copy_complex2real_even(
   v_real(0) = x_k(0).real();
   for (int ii = 1; ii < half_N; ii++) {
     v_real(ii) = x_k(ii).real() * sqrt_2;
-    v_real(N - ii) = -x_k(ii).imag() * sqrt_2;
+    v_real(N - ii) = x_k(ii).imag() * sqrt_2;
   }
   v_real(half_N) = x_k(half_N).real();
 }
@@ -70,9 +70,9 @@ void FFTTransformation::copy_complex2real_even(
 void FFTTransformation::copy_real2complex_odd(
     RealVector_t& v_real) const {
   for (int ii = 1; ii < half_N; ii++) {
-    std::complex<double> tmp_cache {v_real(ii)/sqrt_2, v_real(N - ii)/sqrt_2};
-    x_k(ii) = tmp_cache;
-    x_k(N - ii) = conj(tmp_cache);
+    std::complex<double> tmp_cache {v_real(ii)/sqrt_2, -v_real(N - ii)/sqrt_2};
+    x_k(ii) = conj(tmp_cache);
+    x_k(N - ii) = tmp_cache;
   }
   x_k(0) = std::complex<double>(v_real(0), 0.);
   x_k /= sqrt_N;
