@@ -2,7 +2,7 @@
 
 `c++` package for ring polymer coordinates transformation, between cartesian and normal mode coordinates.
 
-The convention for the FFT matrix follows Eq.(18) in article "Efficient stochastic thermostatting of path integral molecular dynamics." [JCP2010](https://doi.org/10.1063/1.3489925)
+The convention for the DFT matrix follows Eq.(18) in article "Efficient stochastic thermostatting of path integral molecular dynamics." [JCP2010](https://doi.org/10.1063/1.3489925)
 
 Features: 
 - Implemented two algorithms:
