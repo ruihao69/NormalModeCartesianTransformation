@@ -24,6 +24,7 @@ include_directories(
 add_library(NormalModeCartesianTransformation SHARED
      ${CMAKE_CURRENT_SOURCE_DIR}/src/FFTTransformation.cpp
      ${CMAKE_CURRENT_SOURCE_DIR}/src/ExplicitTransformation.cpp
+     ${CMAKE_CURRENT_SOURCE_DIR}/src/RingPolymerData.cpp
 )
 
 target_link_libraries(NormalModeCartesianTransformation PRIVATE FFTW::Double)
@@ -36,6 +37,15 @@ target_link_libraries(test_consistency PRIVATE NormalModeCartesianTransformation
 
 add_executable(test test.cpp)
 target_link_libraries(test PRIVATE NormalModeCartesianTransformation)
+
+add_executable(test_ringpolymerdata test_ringpolymerdata.cpp)
+target_link_libraries(test_ringpolymerdata PRIVATE NormalModeCartesianTransformation)
+
+add_executable(benchmark_ringpolymerdata benchmark_ringpolymerdata.cpp)
+target_link_libraries(benchmark_ringpolymerdata PRIVATE NormalModeCartesianTransformation)
+
+add_executable(consistency_ringpolymerdata consistency_ringpolymerdata.cpp)
+target_link_libraries(consistency_ringpolymerdata PRIVATE NormalModeCartesianTransformation)
 
 # add_executable(test_explicit test_explicit.cpp)
 # target_link_libraries(test_explicit PRIVATE NormalModeCartesianTransformation)
